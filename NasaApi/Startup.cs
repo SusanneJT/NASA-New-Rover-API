@@ -40,6 +40,7 @@ namespace NasaApi
             }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
 
             app.UseRouting();
 
@@ -47,7 +48,7 @@ namespace NasaApi
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+               endpoints.MapControllers();
             });
         }
     }
