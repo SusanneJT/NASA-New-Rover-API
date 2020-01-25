@@ -1,4 +1,5 @@
-﻿using NasaApi.Models;
+﻿using NasaApi.DTOs;
+using NasaApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,38 +21,59 @@ namespace NasaApi.Repositories
             };
         }
 
-        /* public async Task<Rover> GetAllCampsByEventDate()
-         {
-             _logger.LogInformation($"Getting all Camps");
-
-             IQueryable<Camp> query = _context.Camps
-                 .Include(c => c.Location);
-
-             if (includeTalks)
-             {
-                 query = query
-                   .Include(c => c.Talks)
-                   .ThenInclude(t => t.Speaker);
-             }
-
-             // Order It
-             query = query.OrderByDescending(c => c.EventDate)
-               .Where(c => c.EventDate.Date == dateTime.Date);
-
-             return await query.ToArrayAsync();
-         }*/
-
         public async Task<Rover[]> GetAllRoversAsync()
         {
             return _rovers.ToArray();
         }
 
+
         public async Task<Rover> GetRoverByName(string name)
         {
-
             return  _rovers.FirstOrDefault(r => r.Name == name);
         }
 
+        public async Task<LaunchDateDto> GetLaunchDateForRover(string name)
+        {
+            LaunchDateDto launchInfo = new LaunchDateDto
+            {
+                Name = name,
+                LaunchDate = _rovers.FirstOrDefault(r => r.Name == name).LaunchDate
+            };
 
+            return launchInfo;
+        }
+
+        public async Task<SpeedDto> GetSpeedForRover(string name)
+        {
+            SpeedDto speedInfo = new SpeedDto
+            {
+                Name = name,
+                Speed = _rovers.FirstOrDefault(r => r.Name == name).Speed
+            };
+
+            return speedInfo;
+        }
+
+        public async Task<WeightDto> GetWeightForRover(string name)
+        {
+            WeightDto weightInfo = new WeightDto
+            {
+                Name = name,
+                Weight = _rovers.FirstOrDefault(r => r.Name == name).Weight
+            };
+
+            return weightInfo;
+        }
+
+        public async Task<WheelDto> GetWheelsForRover(string name)
+        {
+            WheelDto wheelInfo = new WheelDto
+            {
+                Name = name,
+                Wheels = _rovers.FirstOrDefault(r => r.Name == name).Wheels
+            };
+
+            return wheelInfo;
+        }
     }
 }

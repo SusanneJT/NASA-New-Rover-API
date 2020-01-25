@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ba9df6d620.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light">
+      <h1> <i class="fas fa-rocket"></i> Rovers on mars</h1>
+
+      <ul class="navbar-nav flex-grow-1">
+          <li class="nav-item pl-5">
+              <a href="newrovers.html" class="nav-link text-light">New rovers launching soon</a>
+          </li>
+      </ul>
+    </nav>
+
+</header>
+<article>    
+    <div class="container">
+      <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6b pt-3">
+              <div class="card" >
+                  <div class="card-body">
+                    <p>Choose a date between 03/03/2012 and 2020-01-17 to see what it looked like on the planet Mars on that date</p>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 pt-3">
+              <div class="card padding-card">
+                  <div class="card-body">
+                    <label>Rover</label>
+                    <select id="rover">
+                      <option value="Curiosity">Curiosity</option>
+                      <option value="Spirit">Spirit</option>
+                      <option value="Opportunity">Opportunity</option>
+                    </select>
+                    <label for="">Date</label>
+                    <input type="date" min="2012-09-10" max="2020-01-17" id="date">
+                    <button onclick="inputDate()">Välj</button>
+                  </div>
+              </div>
+          </div>
+    </div>
+
+        
+          <h1 id="show-rover-name"></h1>
+          <div id="rover-image"></div>
+        </div>
+      </div>
+    
+
+</article>
+    
+<script src="js/script.js"></script>
+</body>
+</html>
