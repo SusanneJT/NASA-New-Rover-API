@@ -21,32 +21,6 @@ namespace NasaApi.Controllers
             _roverRepository = roverRepository;
         }
 
-        // GET: api/Rover
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Rover>>> GetRovers()
-        {
-            return await _roverRepository.GetAllRoversAsync();
-        }
-
-
-
-        // GET: api/Rover/RoverName
-        [HttpGet("{name}")]
-        public async Task<ActionResult<Rover>> GetRoverByName(string name)
-        {
-            try
-            {
-                var result = await _roverRepository.GetRoverByName(name);
-                if (result == null) return NotFound();
-
-                return result;
-            }
-            catch (Exception)
-            {
-
-                return StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
-            }
-        }
 
         [HttpGet("{name}/wheels")]
         public async Task<ActionResult<WheelDto>> GetWheels(string name)
@@ -63,8 +37,8 @@ namespace NasaApi.Controllers
 
                 return StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
             }
-
         }
+
 
         [HttpGet("{name}/launchdate")]
         public async Task<ActionResult<LaunchDateDto>> GetLaunchDate(string name)
@@ -81,7 +55,6 @@ namespace NasaApi.Controllers
 
                 return StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
             }
-
         }
 
         [HttpGet("{name}/speed")]
