@@ -9,8 +9,6 @@ namespace NasaApi.Repositories
 {
     public interface IRoverRepository
     {
-        Task<Rover[]>  GetAllRoversAsync();
-        Task<Rover> GetRoverByName(string name);
         Task<WheelDto> GetWheelsForRover(string name);
         Task<LaunchDateDto> GetLaunchDateForRover(string name);
         Task<WeightDto> GetWeightForRover(string name);

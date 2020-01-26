@@ -21,16 +21,6 @@ namespace NasaApi.Repositories
             };
         }
 
-        public async Task<Rover[]> GetAllRoversAsync()
-        {
-            return _rovers.ToArray();
-        }
-
-
-        public async Task<Rover> GetRoverByName(string name)
-        {
-            return  _rovers.FirstOrDefault(r => r.Name == name);
-        }
 
         public async Task<LaunchDateDto> GetLaunchDateForRover(string name)
         {

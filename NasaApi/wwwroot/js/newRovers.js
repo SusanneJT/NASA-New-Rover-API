@@ -1,6 +1,4 @@
 
-
-
 function showInfo(type) {
 
     if (document.getElementById('FattyId').checked) 
@@ -21,32 +19,20 @@ function getRover(type, name) {
         .then((resp) => resp.json())
         .then(function (rover) {
 
-            if (type === "speed") {
-                var text = rover.name + " has a speed of " + rover.speed + " km/h";
-                document.getElementById('result').innerHTML = text;
-            }
-            else if (type === "weight") {
-                var text = rover.name + " weighs " + rover.weight + " kg";
-                document.getElementById('result').innerHTML = text;
-            }
-            else if (type === "wheels") {
-                var text = rover.name + " has " + rover.wheels + " wheels";
-                document.getElementById('result').innerHTML = text;
-            }
-            else if (type === "launchdate") {
-                var text = rover.name + " is getting launched " + rover.launchDate;
-                document.getElementById('result').innerHTML = text;
-            }
+            if (type === "speed") 
+                document.getElementById('result').innerHTML = rover.name + " has a speed of " + rover.speed + " km/h";
+            
+            else if (type === "weight") 
+                document.getElementById('result').innerHTML = rover.name + " weighs " + rover.weight + " kg";
+            
+            else if (type === "wheels") 
+                document.getElementById('result').innerHTML = rover.name + " has " + rover.wheels + " wheels";
+            
+            else if (type === "launchdate") 
+                document.getElementById('result').innerHTML = rover.name + " is getting launched " + rover.launchDate;
         })
         .catch(function (error) {
             console.log(error);
         });
 }
-
-
-
-
-
-
-
 
